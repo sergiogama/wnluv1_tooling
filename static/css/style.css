@@ -1,0 +1,135 @@
+
+
+
+/* FONTS */
+
+@font-face {
+    font-family:"ibmplexsans--light";
+    font-style:normal;
+    font-weight:300;
+    font-display:auto;
+    src:url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX9KVElMYYaJe8bpLHnCwDKjXr8AIFscg.woff) format("woff")
+}
+
+@font-face {
+    font-family:"ibmplexsans--normal";
+    font-style:normal;
+    font-weight:400;
+    font-display:auto;
+    src:url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYXgKVElMYYaJe8bpLHnCwDKhdHeEw.woff) format("woff")
+}
+
+
+/* HTML, BODY AND TITLES */
+
+* {
+    font-family: ibmplexsans--normal;
+}
+
+/* TABLE */
+
+.table--header {
+    font-family: ibmplexsans--light;
+    font-size:130%;
+    box-sizing: border-box;
+    float: left;
+    display: block;
+    padding-left: 20px;
+    width: 1000px;
+    background-color: #f3f3f3;    
+    color: black;
+}
+.table--title {
+    display: table-cell;
+    vertical-align: middle;
+    padding-top: 12px;
+}
+table {
+    float: left;
+    font-family: ibmplexsans--light;
+    font-size: 80%;
+    padding-left: 120px;
+    padding-right: 120px;
+    width: 100%;
+    background-color: #F3F3F3;
+    border-collapse: collapse;
+    border-bottom-width: 1px;
+    border-bottom-color: #DCDCDC;
+    border-bottom-style: solid;
+    color: #565656;
+}
+table th {
+    color: black;
+    text-align: left;
+    padding: 15px;
+    border-bottom-width: 2px;
+    border-bottom-color: #CACACA;
+    border-bottom-style: solid;
+}
+table tr {
+    border-bottom-width: 1px;
+    border-bottom-color: #DCDCDC;
+    border-bottom-style: solid;
+}
+table th:hover {
+    background-color: #CACACA;
+}
+table tr:hover {
+    background-color: #e5e5e5;
+}
+table td {
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 8px;
+    padding-left: 15px;
+}
+table thead {
+    background-color: #DCDCDC;
+}
+.table--btn {
+    background-color: rgb(32, 73, 135);
+    border: 3px solid transparent;
+    color: #fff;
+    box-sizing: border-box;
+    margin: 0;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.125rem;
+    letter-spacing: .16px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    padding: calc(.875rem - 3px) 0px calc(.875rem - 3px) 12px;
+    border-radius: 0;
+    text-align: left;
+    text-decoration: none;
+    outline: 1px solid transparent;
+    outline-offset: -4px;
+    max-width: 20rem;
+}
+.table--btn:hover {
+    background-color: rgb(23, 62, 120);
+}
+
+.table--wrapper--mobile {
+    clear:both;
+    width: 100%;
+}
+.table--header--mobile {
+    font-family: ibmplexsans--light;
+    font-size:130%;
+    box-sizing: border-box;
+    float: left;
+    display: block;
+    width: 100%;
+    background-color: #f3f3f3;    
+    color: black;
+}
+.table--title--mobile {
+    display: table-cell;
+    vertical-align: middle;
+    padding-top: 12px;
+}

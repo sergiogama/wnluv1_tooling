@@ -1,0 +1,119 @@
+{% extends "layout.html" %}
+
+{% block app_content %}
+
+<div class="bx--row">
+  <div class="bx--col-lg-8 bx--offset-lg-4">
+    <h1 class="page-h1">
+      <font size="+3">Watson Natural Language Understanding</font> <br><br>
+      <font size="+1">Ferramenta para teste de API e modelos anotadores customizados</font>
+    </h1>
+  </div>
+</div><br><br><br>
+
+<form method=POST action="/"><br>
+  <div class="bx--row">
+    <div class="bx--col-lg-8 bx--offset-lg-4">
+
+      <div class="bx--form-item">
+        <label for="nlu_apikey" class="bx--label">API key:</label>
+        <input required class="bx--text-input" id="nlu_apikey" name="nlu_apikey" type="text">
+      </div><br>
+
+      <div class="bx--form-item">
+        <label for="nlu_url" class="bx--label">Endpoint URL:</label>
+        <input required class="bx--text-input" id="nlu_url" name="nlu_url" type="text">
+      </div><br>
+
+      <div class="bx--form-item">
+        <label for="custom_model" class="bx--label">Custom model id:</label>
+        <input required class="bx--text-input" id="custom_model" name="custom_model" type="text" value="default">
+      </div><br>
+
+      <div class="bx--form-item">
+        <label for="limit" class="bx--label">Limit:</label>
+        <div class="bx--form__helper-text">
+          Número máximo de entidades a serem retornadas pela API.
+        </div>
+        <input required class="bx--text-input" id="limit" name="limit" type="text">
+      </div><br>
+
+      <div class="bx--form-item">
+        <div class="bx--dropdown__wrapper ">
+          <label for="mentions" class="bx--label">Mentions:</label>
+          <div class="bx--form__helper-text">
+            Se a API deve retornar locais de menções às entidades.
+          </div>
+          <select name="mentions">
+            <option value="1">Enabled</option>
+            <option value="0">Disabled</option>
+          </select>
+        </div>
+      </div><br>
+
+      <div class="bx--form-item">
+        <div class="bx--dropdown__wrapper ">
+          <label for="sentiment" class="bx--label">Sentiment:</label>
+          <div class="bx--form__helper-text">
+            Se a API deve retornar informações sobre sentimentos para às entidades detectadas.
+          </div>
+          <select name="sentiment">
+            <option value="1">Enabled</option>
+            <option value="0">Disabled</option>
+          </select>
+        </div>
+      </div><br>
+
+      <div class="bx--form-item">
+        <div class="bx--dropdown__wrapper ">
+          <label for="emotion" class="bx--label">Emotions:</label>
+          <div class="bx--form__helper-text">
+            Se a API deve retornar informações sobre emoções para às entidades detectadas.
+          </div>
+          <select name="emotion">
+            <option value="1">Enabled</option>
+            <option value="0">Disabled</option>
+          </select>
+        </div>
+      </div><br>
+
+      <div class="bx--form-item">
+        <label for="data" class="bx--label">Input Data:</label>
+        <div class="bx--form__helper-text">
+          Texto em UTF-8 para ser anotado pelo modelo de linguagem natural.
+        </div>
+        <input required class="bx--text-input" id="data" name="data" type="text">
+      </div><br>
+
+        {% if msg %}
+        <br>
+        <div data-notification class="bx--toast-notification bx--toast-notification--error" role="alert">
+          <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--toast-notification__icon" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm3.5 13.5l-8-8 1-1 8 8-1 1z"></path>
+            <path d="M13.5 14.5l-8-8 1-1 8 8-1 1z" data-icon-path="inner-path" opacity="0"></path>
+          </svg>
+          <div class="bx--toast-notification__details">
+            <h3 class="bx--toast-notification__title">Falha na comunicação com o Watson</h3><br>
+            <p class="bx--toast-notification__subtitle">
+              ApiException: `{{ msg }}`.
+            </p>
+            <p class="bx--toast-notification__caption">{{ timestamp }}</p>
+          </div>
+        </div>
+        {% endif %}
+        
+
+    </div>
+  </div><br><br><br>
+
+  <div class="bx--row">
+    <div class="bx--col-lg-8 bx--offset-lg-4">
+      <div class="bx--form-item">
+        <button type=submit class="bx--btn bx--btn--primary" type="button">
+          Executar teste
+        </button>
+      </div>
+    </div>
+  </div>
+</form><br><br>
+
+{% endblock %}

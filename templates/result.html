@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block app_content %}
+
+<div class="bx--row">
+  <div class="bx--col-lg-8 bx--offset-lg-4">
+    <h1 class="page-h1">
+      <font size="+3">Watson Natural Language Understanding</font> <br><br>
+      <font size="+1">Resultados:</font>
+    </h1>
+  </div>
+</div><br>
+
+<br>
+<div class="bx--row">
+    <div class="bx--col-lg-8 bx--offset-lg-4">
+      <font size="+1"><b>Modelo anotador</b></font>
+      <br><br>
+      {% if model_list %}
+        <p>A instância do Watson NLU referida pela API key fornecida possui os seguintes modelos customizados disponíveis:</p>
+        <br>
+        {{ model_list }}
+      {% else %}
+        <p>A instância do Watson NLU referida pela API key fornecida não possui modelos customizados disponíveis.</p>
+        <br>
+      {% endif %}
+      <p>Modelo utilizado no teste: `{{ model }}`</p>
+      <br>
+  </div>
+</div>
+<br>
+<div class="bx--row">
+    <div class="bx--col-lg-8 bx--offset-lg-4">
+      <font size="+1"><b>Texto de entrada</b></font>
+      <br><br>
+      <p><em>"{{ data }}"</em></p>
+      <br>
+  </div>
+</div>
+<br>
+<div class="bx--row">
+    <div class="bx--col-lg-8 bx--offset-lg-4">
+      <font size="+1"><b>Entidades</b></font>
+      <br><br>
+      <div class="table--wrapper">
+        {{ entities_table }}
+      </div>
+  </div>
+</div>
+<br><br>
+<div class="bx--row">
+    <div class="bx--col-lg-8 bx--offset-lg-4">
+      <font size="+1"><b>Relações</b></font>
+      <br><br>
+      <div class="table--wrapper">
+        {{ relations_table }}
+      </div>
+  </div>
+</div>
+<br><br>
+
+<div class="bx--row">
+    <div class="bx--col-lg-8 bx--offset-lg-4">
+      <div class="bx--form-item">
+        <form action = "/">
+          <button type=submit class="bx--btn bx--btn--primary" type="button">
+            Voltar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</form><br><br>
+
+{% endblock %}

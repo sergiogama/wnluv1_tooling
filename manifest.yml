@@ -1,6 +1,6 @@
 applications:
  - path: .
-   name: wks-tooling
+   name: nlu-tooling
    random-route: false
    memory: 1G
    disk_quota: 1G

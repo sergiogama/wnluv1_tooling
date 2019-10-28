@@ -1,10 +1,5 @@
-from gevent.monkey import patch_all
-patch_all()
-from gevent.local import local
-from psycogreen.gevent import patch_psycopg
-patch_psycopg()
-
 from flask import Flask, request, render_template
+from flask_sslify import SSLify
 from flask_cors import CORS
 
 from ibm_watson import NaturalLanguageUnderstandingV1
@@ -23,8 +18,9 @@ import tables_wks
 '''
 flask_server = Flask(__name__)
 flask_server.config['SECRET_KEY'] = urandom(16)
-flask_server.config['WTF_CSRF_SECRET_KEY'] = urandom(16)
 CORS(flask_server)
+#SSLify(flask_server)
+
 
 ''' 
     Flask Server Routes 
@@ -74,8 +70,9 @@ def root():
                         relations=RelationsOptions(model=custom_model)
                     )
                 ).get_result()
+                print(json.dumps(response, indent=2))
                 # Entities Table
-                entities_table = tables_wks.gen_entities_table(response["entities"])
+                entities_table = tables_wks.gen_entities_table_custom(response["entities"])
                 # Relations Table
                 relations_table = tables_wks.gen_relations_table(response["relations"])
             else:
@@ -86,6 +83,7 @@ def root():
                         relations=RelationsOptions()
                     )
                 ).get_result()
+                print(json.dumps(response, indent=2))
                 #print(json.dumps(response, indent=2))
                 #print(response["entities"])
                 #print(response["relations"])
